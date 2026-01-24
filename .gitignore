@@ -1,2 +1,9 @@
-
 .DS_Store
+target/
+*.class
+*.jar
+*.war
+*.ear
+.idea/
+*.iml
+.vscode/
