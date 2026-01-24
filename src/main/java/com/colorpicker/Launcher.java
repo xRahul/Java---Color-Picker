@@ -13,6 +13,7 @@ public class Launcher {
 
     public static void main(String[] args) {
         if (isMacOSX()) {
+            System.setProperty("apple.awt.application.name", "ColorPicker");
             System.setProperty("com.apple.mrj.application.apple.menu.about.name", "ColorPicker");
         }
 
@@ -42,15 +43,8 @@ public class Launcher {
     }
 
     public static void enableFullScreenMode(Window window) {
-        String className = "com.apple.eawt.FullScreenUtilities";
-        String methodName = "setWindowCanFullScreen";
-
-        try {
-            Class<?> clazz = Class.forName(className);
-            Method method = clazz.getMethod(methodName, Window.class, boolean.class);
-            method.invoke(null, window, true);
-        } catch (Exception t) {
-            // Full screen mode is not supported or failed to enable
+        if (window instanceof JFrame) {
+            ((JFrame) window).getRootPane().putClientProperty("apple.awt.fullscreenable", true);
         }
     }
 

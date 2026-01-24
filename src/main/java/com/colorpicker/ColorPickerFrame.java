@@ -136,15 +136,7 @@ public class ColorPickerFrame extends JFrame {
 			int rgb = Color.HSBtoRGB(hue, saturation, brightness);
 			Color properRGB = new Color(rgb);
 
-			int redD = properRGB.getRed();
-			String redH = Integer.toHexString(redD).toUpperCase();
-			int greenD = properRGB.getGreen();
-			String greenH = Integer.toHexString(greenD).toUpperCase();
-			int blueD = properRGB.getBlue();
-			String blueH = Integer.toHexString(blueD).toUpperCase();
-
-			rgbColorString = String.format("RGB_Hex_Value: #%s%s%s\nRed: %d, %s\nGreen: %d, %s\nBlue: %d, %s",
-									redH, greenH, blueH, redD, redH, greenD, greenH, blueD, blueH);
+			rgbColorString = ColorUtils.formatColorInfo(properRGB);
 
 			addColorPanel();
 
