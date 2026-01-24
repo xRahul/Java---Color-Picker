@@ -1,8 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+package com.colorpicker;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -16,11 +12,11 @@ import javax.swing.JPanel;
  * @author Shubham Gupta
  */
 @SuppressWarnings("serial")
-public class panels extends JFrame implements MouseListener{
+public class PrototypePanels extends JFrame implements MouseListener{
 	JPanel jp[];
 	int i=0,y=0;
 
-    public panels()  {
+    public PrototypePanels()  {
         this.addMouseListener(this);
     }
 
@@ -46,7 +42,7 @@ public class panels extends JFrame implements MouseListener{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        panels gd=new panels();
+        PrototypePanels gd=new PrototypePanels();
         gd.setVisible(true);
         gd.setSize(100, 100);
         gd.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -57,27 +53,22 @@ public class panels extends JFrame implements MouseListener{
     public void mouseClicked(MouseEvent e) {
        System.out.println("aaa");
        Gridtry1();
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
