@@ -69,8 +69,12 @@ public class ColorPickerFrame extends JFrame {
 
         // Update layout to include the new panel in the grid
         // The grid has 1 row, and columns = number of color panels + 1 (for mousepanel)
-        GridLayout gl = new GridLayout(1, colorPanels.size() + 1);
-        this.setLayout(gl);
+        if (getContentPane().getLayout() instanceof GridLayout) {
+            ((GridLayout) getContentPane().getLayout()).setColumns(colorPanels.size() + 1);
+        } else {
+            GridLayout gl = new GridLayout(1, colorPanels.size() + 1);
+            this.setLayout(gl);
+        }
 
         add(newPanel);
 
