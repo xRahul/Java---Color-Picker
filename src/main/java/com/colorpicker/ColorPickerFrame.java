@@ -23,6 +23,18 @@ import javax.swing.SwingConstants;
 public class ColorPickerFrame extends JFrame {
 
 	private static final long serialVersionUID = 8898424205695958845L;
+
+	private static final ImageIcon infoIcon;
+
+	static {
+		URL imgUrl = ColorPickerFrame.class.getResource("/qwerty.png");
+		if (imgUrl != null) {
+			infoIcon = new ImageIcon(imgUrl);
+		} else {
+			infoIcon = null;
+		}
+	}
+
 	private JLabel statusbar, devName;
 	private JPanel mousepanel;
 
@@ -151,17 +163,11 @@ public class ColorPickerFrame extends JFrame {
 			textArea.setEditable(false);
 			textArea.setBackground(new Color(236,236,236));
 
-            ImageIcon icon = null;
-            URL imgUrl = getClass().getResource("/qwerty.png");
-            if (imgUrl != null) {
-                icon = new ImageIcon(imgUrl);
-            }
-
 			JOptionPane.showMessageDialog(null,
 										textArea,
 										"Color Info",
 										JOptionPane.INFORMATION_MESSAGE,
-										icon );
+										infoIcon );
 		}
 
 		@Override
