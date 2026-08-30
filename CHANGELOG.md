@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1](https://github.com/xRahul/Java---Color-Picker/compare/v2.0.0...v2.0.1) (2026-08-30)
+
+
+### Bug Fixes
+
+* make publish-release trigger on tag push to avoid GITHUB_TOKEN loop ([1b1e59b](https://github.com/xRahul/Java---Color-Picker/commit/1b1e59babcea6c01a01ea5262204ef585081b588))
+
 ## [2.0.0](https://github.com/xRahul/Java---Color-Picker/compare/v1.0.0...v2.0.0) (2026-08-30)
 
 
