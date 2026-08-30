@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Upgrade Java source/target from 8 to 21
-- Upgrade JUnit Jupiter to 5.12.3
+- Upgrade JUnit Jupiter to 5.12.2
 - Upgrade Maven plugins: `maven-compiler-plugin` 3.13.0, `maven-surefire-plugin` 3.5.3, `exec-maven-plugin` 3.2.0, `versions-maven-plugin` 2.18.0
 - Configure `maven-surefire-plugin` with `java.awt.headless=true` for headless test execution
 - CI workflow `ci.yml` upgraded to JDK 21 (Temurin) with Maven cache and `mvn clean verify`
