@@ -35,3 +35,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - Unreleased
 
 - Initial modernized baseline tracked under `[Unreleased]` above.
+
+<!-- release-please trigger: feat commit with file change to verify pipeline -->
