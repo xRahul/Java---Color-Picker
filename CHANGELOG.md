@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0](https://github.com/xRahul/Java---Color-Picker/compare/v1.0.0...v2.0.0) (2026-08-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* none - just forces releasable commit for release-please.
+
+### Features
+
+* trigger initial release-please check ([9d4598e](https://github.com/xRahul/Java---Color-Picker/commit/9d4598edd63d3fc5241252e792e938b0bf99b943))
+* verify release-please pipeline creates release PR ([77cc990](https://github.com/xRahul/Java---Color-Picker/commit/77cc99075ebaa7effe6bb7cc29ba6b4e1a6a461f))
+
+
+### Bug Fixes
+
+* add release-please manifest for java release-type ([5790d65](https://github.com/xRahul/Java---Color-Picker/commit/5790d65dde7d0fe341c1fa384d541ea9cdeb4c10))
+* configure release-please with manifest and simple release-type ([bd4367e](https://github.com/xRahul/Java---Color-Picker/commit/bd4367e1cd3ea6470cec89cdfffb7284f71aaebf))
+
 ## [Unreleased]
 
 ### Added
