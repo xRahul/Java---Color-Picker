@@ -7,3 +7,22 @@ target/
 .idea/
 *.iml
 .vscode/
+# >>> opencode-config auto
+build/
+out/
+dist/
+coverage/
+node_modules/
+kotlin-js-store/
+__pycache__/
+.venv/
+venv/
+.gradle/
+.kotlin/
+.dart_tool/
+.flutter-plugins-dependencies
+.worktrees/
+*.apk
+*.aab
+.ruff_cache/
+# <<< opencode-config auto
