@@ -1,5 +1,7 @@
 # Java Color Picker
 
+[![CI](https://github.com/rahulgr8888/Java---Color-Picker/workflows/CI/badge.svg)](https://github.com/rahulgr8888/Java---Color-Picker/actions)
+
 A simple Java Swing application to pick and view colors side-by-side with their information.
 
 ## Screenshot
@@ -18,7 +20,7 @@ A simple Java Swing application to pick and view colors side-by-side with their 
 
 ### Prerequisites
 
-*   Java JDK 8 or higher
+*   Java JDK 21 or higher
 *   Maven
 
 ### Build and Run
