@@ -12,11 +12,6 @@ import javax.swing.SwingUtilities;
 public class Launcher {
 
     public static void main(String[] args) {
-        if (isMacOSX()) {
-            System.setProperty("apple.awt.application.name", "ColorPicker");
-            System.setProperty("com.apple.mrj.application.apple.menu.about.name", "ColorPicker");
-        }
-
         SwingUtilities.invokeLater(() -> {
             ColorPickerFrame go = new ColorPickerFrame();
             go.setBackground(Color.WHITE);
