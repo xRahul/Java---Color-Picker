@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.io.Serial;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import javax.swing.SwingConstants;
 
 public class ColorPickerFrame extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 8898424205695958845L;
 
 	private static final ImageIcon infoIcon;
@@ -38,8 +40,7 @@ public class ColorPickerFrame extends JFrame {
 	private JLabel statusbar, devName;
 	private JPanel mousepanel;
 
-	private float hue, saturation;
-	private float brightness = 0.5f;
+	private final ColorModel colorModel = new ColorModel();
 	private String rgbColorString;
 
 	private List<JPanel> colorPanels = new ArrayList<>();
@@ -68,13 +69,13 @@ public class ColorPickerFrame extends JFrame {
 
 	public void addColorPanel() {
         JPanel newPanel = new JPanel();
-        newPanel.setBackground(Color.getHSBColor(hue, saturation, brightness));
+        newPanel.setBackground(colorModel.getColor());
         newPanel.setLayout(new BorderLayout());
 
         JTextArea textArea = new JTextArea(rgbColorString);
 		textArea.setEditable(false);
 		textArea.setForeground(Color.BLACK);
-		textArea.setBackground(Color.getHSBColor(hue, saturation, brightness));
+		textArea.setBackground(colorModel.getColor());
 		newPanel.add(textArea, BorderLayout.CENTER);
 
         colorPanels.add(newPanel);
@@ -97,20 +98,15 @@ public class ColorPickerFrame extends JFrame {
 	private class ColorMouseListener implements MouseListener, MouseMotionListener, MouseWheelListener {
 
 	    public void updateColor(MouseEvent e) {
-            // Update hue and saturation based on mouse position relative to the panel
             int width = mousepanel.getWidth();
             int height = mousepanel.getHeight();
 
             if (width > 0 && height > 0) {
-                hue = (float)e.getX() / width;
-                saturation = (float)e.getY() / height;
-
-                // Clamp values to 0.0 - 1.0 just in case
-                hue = Math.max(0.0f, Math.min(1.0f, hue));
-                saturation = Math.max(0.0f, Math.min(1.0f, saturation));
+                colorModel.setHue((float)e.getX() / width);
+                colorModel.setSaturation((float)e.getY() / height);
             }
 
-			Color c = Color.getHSBColor(hue, saturation, brightness);
+			Color c = colorModel.getColor();
 			mousepanel.setBackground(c);
 		}
 
@@ -121,35 +117,15 @@ public class ColorPickerFrame extends JFrame {
 
 		@Override
 		public void mouseWheelMoved(MouseWheelEvent e) {
-            // Adjust brightness
-            // e.getWheelRotation() returns negative for "up" (away from user) and positive for "down" (towards user).
-            // Typically, scrolling up (away) might increase a value, but original code:
-            // direction UP (rot < 0) -> b += change.
-            // direction DOWN (rot > 0) -> b -= change.
-            // Wait, original code:
-            // if (direction == UP) b += changeInB;
-            // UP was defined as abs(rot) > 0 ? UP : DOWN. Wait.
-            // Original:
-            // int direction = (Math.abs(countWheelRotations) > 0) ? UP : DOWN;
-            // changeInB = (float)countWheelRotations/100;
-            // if (direction == UP) b += changeInB; else b -= changeInB;
-
-            // If rot = -1. abs(-1) = 1 > 0 -> UP. change = -0.01. b += -0.01. b decreases.
-            // If rot = 1. abs(1) = 1 > 0 -> UP. change = 0.01. b += 0.01. b increases.
-            // So scrolling up (away) decreases brightness. Scrolling down (towards) increases brightness.
-
             float change = (float)e.getWheelRotation() / 100.0f;
-            brightness += change;
-
-            // Clamp brightness between 0.0 and 1.0
-            brightness = Math.max(0.0f, Math.min(1.0f, brightness));
+            colorModel.setBrightness(colorModel.getBrightness() + change);
 
 	        updateColor(e);
 		}
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			int rgb = Color.HSBtoRGB(hue, saturation, brightness);
+			int rgb = Color.HSBtoRGB(colorModel.getHue(), colorModel.getSaturation(), colorModel.getBrightness());
 			Color properRGB = new Color(rgb);
 
 			rgbColorString = ColorUtils.formatColorInfo(properRGB);
